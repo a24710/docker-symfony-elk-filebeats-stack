@@ -1,0 +1,27 @@
+App\Entity\EmployeeProjectRelation:
+
+  collectionOperations:
+    get:
+      normalization_context:
+        groups:
+          - "employee_project_relation:read"
+          - "employee:read"
+          - "project:read"
+
+  itemOperations:
+    get:
+      normalization_context:
+        groups:
+          - "employee_project_relation:read"
+
+  subresourceOperations:
+    api_employees_project_relations_get_subresource:
+      method: 'GET'
+      normalization_context:
+        groups:
+          - "employee_project_relation:read"
+          - "project:read"
+
+
+
+

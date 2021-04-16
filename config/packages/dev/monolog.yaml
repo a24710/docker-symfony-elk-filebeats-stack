@@ -1,0 +1,48 @@
+monolog:
+    handlers:
+        main:
+            type: stream
+            path: php://stderr
+            level: debug
+            channels: ["!event"]
+
+        console:
+            type: console
+            process_psr_3_messages: false
+            channels: ["!event", "!doctrine", "!console"]
+
+        #store all logs in a local file (buffered for better performance)
+        buffered_file:
+            type: buffer
+            handler: file_log
+            level: info
+
+        file_log:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            #formatter: Monolog\Formatter\LogstashFormatter
+
+
+#        #store logs in elastic search directly just for info level and above
+#        buffered_elastic:
+#            type: buffer
+#            handler: elastic_search_log
+#            level: info
+#
+#        elastic_search_log:
+#            type: service
+#            id: Symfony\Bridge\Monolog\Handler\ElasticsearchLogstashHandler
+
+        #store logs in logstash which will redirect to elastic search
+#        buffered_logstash:
+#            type: buffer
+#            handler: logstash
+#            level: info
+
+#        logstash:
+#            type: stream
+#            path: "http:\\logstash_cont:5044"
+#            formatter: Monolog\Formatter\LogstashFormatter
+
+
+

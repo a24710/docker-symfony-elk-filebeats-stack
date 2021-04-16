@@ -1,0 +1,100 @@
+version: "3.7"
+
+services:
+
+  nginx_cont:
+    container_name: nginx_cont
+    build: ./docker/nginx    
+    ports: 
+      - "81:80"
+    volumes: 
+      - .:/var/www/html
+    depends_on: 
+      - php_cont
+
+  php_cont:
+    container_name: php_cont
+    build: ./docker/php
+    user: 1000:1000
+    environment:
+      PHP_IDE_CONFIG: serverName=Docker
+      PHP_XDEBUG_ENABLED: 1
+      XDEBUG_CONFIG: remote_host=172.17.0.1 remote_port=9005
+    volumes: 
+      - .:/var/www/html
+
+  mysql_cont:
+    container_name: mysql_cont
+    image: "mysql:8.0.23"
+    environment: 
+      MYSQL_ROOT_PASSWORD: "mypassword"
+      MYSQL_DATABASE: "symfonyelk"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "mypassword"
+    ports: 
+      - "3307:3306"
+    volumes: 
+      - mysql_volume:/var/lib/mysql
+
+  elasticsearch:
+    container_name: elasticsearch
+    image: "docker.elastic.co/elasticsearch/elasticsearch:7.12.0"
+    environment:
+      - "discovery.type=single-node"
+      - "bootstrap.memory_lock=true"
+      - "ES_JAVA_OPTS=-Xms1G -Xmx1G"
+      - "xpack.security.enabled=false"
+      - "http.cors.enabled=true"
+      - "http.cors.allow-origin=*"
+    ports:
+      - 9201:9200
+    volumes:
+      - elastic_volume:/usr/share/elasticsearch/data
+
+  #gather all logs from different sources and pass them to elastic-search in a proper format
+  logstash_cont:
+    container_name: logstash_cont
+    build: ./docker/logstash
+    #ports:
+    #  - 5041:5044
+    depends_on:
+      - elasticsearch
+
+  #keep track of the symfony log file and send it to elastic search
+  filebeats_cont:
+    container_name: filebeats_cont
+    build: ./docker/filebeats
+    volumes:
+      - ./var/log:/var/log/symfony
+    depends_on:
+      - logstash_cont
+
+  kibana_cont:
+    image: docker.elastic.co/kibana/kibana:7.12.0
+    container_name: kibana_cont
+    ports:
+      - 5602:5601
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+
+volumes:
+  mysql_volume:
+  elastic_volume:
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+    

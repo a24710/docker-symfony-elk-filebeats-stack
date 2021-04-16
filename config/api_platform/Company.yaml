@@ -1,0 +1,11 @@
+App\Entity\Company:
+  collectionOperations:
+    get:
+      normalization_context:
+        groups:
+          - "company:read"
+  itemOperations:
+    get:
+      normalization_context:
+        groups:
+          - "company:read"

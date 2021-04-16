@@ -1,0 +1,29 @@
+App\Entity\Employee:
+  collectionOperations:
+    get:
+      normalization_context:
+        groups:
+          - "employee:read"
+          - "company:read"
+    post:
+      normalization_context:
+        groups:
+          - "employee:read"
+          - "company:read"
+      denormalization_context:
+        groups:
+          - "employee:write"
+
+  itemOperations:
+    get:
+      normalization_context:
+        groups:
+          - "employee:read"
+          - "company:read"
+
+  properties:
+    projectRelations:
+      subresource:
+        resourceClass: 'App\Entity\EmployeeProjectRelation'
+        collection: true
+

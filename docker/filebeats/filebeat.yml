@@ -1,0 +1,19 @@
+filebeat.inputs:
+  - type: log
+    paths:
+      - /var/log/symfony/dev.log
+
+output.logstash:
+  hosts: ["logstash_cont:5044"]
+  index: "logs-symfony"
+
+#setup.ilm.enabled: false
+#setup.template.overwrite: true
+#setup.template.name: "symfony-loggitos"
+#setup.template.pattern: "symfony-loggitos-*"
+#
+#output.elasticsearch:
+#  hosts: ["elasticsearch:9200"]
+#  index: "logs-symfony"
+##  #username: "filebeat_internal"
+##  #password: "YOUR_PASSWORD"

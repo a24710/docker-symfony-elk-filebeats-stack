@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "441e3d2d-8dbf-4cd7-82c7-97df2922dc9d",
+		"name": "api-endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Employees Raw",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/employees_raw",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"employees_raw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Employees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Employee",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/employees/a3b546bf-1ec6-4d65-b4e7-8139bbed43a0",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"employees",
+						"a3b546bf-1ec6-4d65-b4e7-8139bbed43a0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Employee Projects",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/employees/a3b546bf-1ec6-4d65-b4e7-8139bbed43a0/project_relations",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"employees",
+						"a3b546bf-1ec6-4d65-b4e7-8139bbed43a0",
+						"project_relations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Employee Project Relations",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/employee_project_relations",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"employee_project_relations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Employees In CSV",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/employees/csv_export",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"employees",
+						"csv_export"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Employees Fuzzy elastic search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/employees/fuzzySearch?searchQuery=emiu",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"employees",
+						"fuzzySearch"
+					],
+					"query": [
+						{
+							"key": "searchQuery",
+							"value": "emiu"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Companies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/companies",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Company",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/companies/b8ebdec4-529b-44c3-bbfd-1aa7c0caef93",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"companies",
+						"b8ebdec4-529b-44c3-bbfd-1aa7c0caef93"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Projects",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Project",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:81/api/projects/144504b5-d3e4-4bcb-acc8-91e011fa2eab",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"projects",
+						"144504b5-d3e4-4bcb-acc8-91e011fa2eab"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Employees",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Johndy\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.dose@exasmple.org\",\n    \"salary\": 43000,\n    \"bonus\": 42000,\n    \"insuranceAmount\": 41000,\n    \"company\": \"/api/companies/b8ebdec4-529b-44c3-bbfd-1aa7c0caef93\",\n    \"employmentStartDate\": \"2020/01/23\",\n    \"positionInCompany\":\"manager\"\n}"
+				},
+				"url": {
+					"raw": "localhost:81/api/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Employees CSV",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data; boundary=<calculated when request is sent>"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/david/Desktop/employees.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:81/api/employees/csv_import",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"employees",
+						"csv_import"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

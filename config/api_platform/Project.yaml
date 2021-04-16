@@ -1,0 +1,11 @@
+App\Entity\Project:
+  collectionOperations:
+    get:
+      normalization_context:
+        groups:
+          - "project:read"
+  itemOperations:
+    get:
+      normalization_context:
+        groups:
+          - "project:read"
