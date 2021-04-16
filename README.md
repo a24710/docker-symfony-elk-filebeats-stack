@@ -1,4 +1,4 @@
-# Symfony with ELK and fileBeats Stack
+# Symfony with ELK and Elastic FileBeats Stack
 
 **Prerequisites**: Make sure that docker and docker-compose are installed in your machine and available for your console  
 
