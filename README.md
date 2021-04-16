@@ -6,7 +6,7 @@ Download the repository code to a folder in your machine and setup all the neede
 
     docker-compose up --build
 
-All containers should be up and running and now.
+All containers should be up and running now.
 
 The folder "var" was automatically created because it's a shared volume with the fileBeats container.
 We need to take ownership of this folder so later our php container does not have problems writing on it.
