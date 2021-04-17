@@ -42,6 +42,8 @@ You can launch the provided tests with (It will install php unit the first time)
     php bin/phpunit
     
 A postman collection is available in the root directory to test all api methods. 
+Please, notice that uuids are randomly generated, and the ones present in some postman urls are just placeholders.
+In order to test this urls replace the placeholder uuid with a real one you get from a get collection call.
 
 Also, after generating the fixture data and hitting some endpoints using postman you can check elastic logs through kibana and your web browser 'localhost:5602'.
 
